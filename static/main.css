@@ -197,13 +197,21 @@ header {
     flex-grow: 1;
     padding: 0;
     margin: 1rem;
-
-    max-width: 300px;
-    max-height: 300px;
+    
+    max-width: 450px;
+    max-height: 450px;
 
     border-radius: 20px;
     border: orange solid 2px;
 }
+
+@media screen and (max-width: 600px)  {
+    .timepoint img {
+        max-width: 350px;
+        max-height: 350px;
+    }
+}
+
 
 .timepoint .content {
     flex-grow: 3;
