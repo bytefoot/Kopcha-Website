@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <style>
+        .gradient-layer {
+            background-image: url("{{ url_for('static', filename='header_gradient.svg') }}");
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .waves-layer {
+            background-image: url("{{ url_for('static', filename='footer_waves.svg') }}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+
+    {% block extraheaders %}{% endblock %}
+
+    <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+
     {% if title %}
         <title>The Kopcha - {{ title }}</title>
     {% else %}
@@ -16,6 +37,45 @@
 
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <header class="gradient-layer">
+        <div class="navbar">
+            <div class="logo"><a class="menu-item" href="{{ url_for('index') }}">The Kopcha</a></div>
+            <ul class="links">
+                <li class="navitem"><a class="menu-item" href="{{ url_for('gallery') }}">Gallery</a></li>
+                <li class="navitem"><a class="menu-item" href="{{ url_for('members') }}">Members</a></li>
+                <li class="navitem"><a class="menu-item" href="{{ url_for('support') }}">Support</a></li>
+            </ul>
+            <div class="toggle-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        
+        <div class="dropdown-menu">
+            <ul class="links">
+                <li class="navitem"><a class="menu-item" href="{{ url_for('gallery') }}">Gallery</a></li>
+                <li class="navitem"><a class="menu-item" href="{{ url_for('members') }}">Members</a></li>
+                <li class="navitem"><a class="menu-item" href="{{ url_for('support') }}">Support</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="content-body">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="waves-layer">
+        <div class="social-info">
+            <div class="social-icon-wrapper">
+                <a href="https://github.com/bytefoot" class="social-icon fa-brands fa-github"></a>
+            </div>
+            <div class="social-icon-wrapper">
+                <a href="mailto:kevinkinsey2005@gmail.com" class="social-icon fa-regular fa-envelope"></a>
+            </div>
+        </div>
+        <div class="author-info">
+            <h3 class="name">~ Kevin Kinsey</h3>
+            <h5 class="descrp">A proud member of The Kopcha</h5>
+        </div>
+    </footer>
 </body>
 </html>

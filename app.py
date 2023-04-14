@@ -10,5 +10,13 @@ def index():
 def members():
     return render_template("underdev.html", title="Members")
 
+@app.route('/gallery')
+def gallery():
+    return render_template("underdev.html", title="Gallery")
+
+@app.route('/support')
+def support():
+    return render_template("underdev.html", title="Support")
+
 if __name__ == "__main__":
     app.run(port=8080, debug=True)
