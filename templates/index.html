@@ -1,47 +1,20 @@
 {% extends "layout.html"%}
 {% block content %}
 <div class="timeline-data-area">
+
+    {% for post in data %}
     <div class="timepoint-wrapper hidden">
         <div class="timepoint">
-            <img src="https://picsum.photos/300/200?random=1">
+            <img src="{{ url_for('static', filename='images/'+post.filename) }}">
             <div class="content">
-                <h3 class="content-date">14th April, 2023</h3>
-                <h1 class="content-head">The prophecy of Nihit</h1>
+                <h3 class="content-date">{{ format_date(post.date) }}</h3>
+                <h1 class="content-head">{{ post.title }}</h1>
                 <p class="content-descrp">
-                    By divine guidance, our dear <span style="color: brown;">Bund Baba</span> and <span style="color: orange;">Kinna</span> have foretold the
-                    conversion to Nihit to his true Trans nature by 2027. <span style="color: cyan">@Nihit</span> dw, we
-                    support you in your every decision
+                    {{ mark(post.description) }}
                 </p>
             </div>
         </div>
     </div>
-    <div class="timepoint-wrapper hidden">
-        <div class="timepoint">
-            <img src="https://picsum.photos/300/200?random=1">
-            <div class="content">
-                <h3 class="content-date">14th April, 2023</h3>
-                <h1 class="content-head">The prophecy of Nihit</h1>
-                <p class="content-descrp">
-                    By divine guidance, our dear <span style="color: brown;">Bund Baba</span> and <span style="color: orange;">Kinna</span> have foretold the
-                    conversion to Nihit to his true Trans nature by 2027. <span style="color: cyan">@Nihit</span> dw, we
-                    support you in your every decision
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="timepoint-wrapper hidden">
-        <div class="timepoint">
-            <img src="https://picsum.photos/300/200?random=1">
-            <div class="content">
-                <h3 class="content-date">14th April, 2023</h3>
-                <h1 class="content-head">The prophecy of Nihit</h1>
-                <p class="content-descrp">
-                    By divine guidance, our dear <span style="color: brown;">Bund Baba</span> and <span style="color: orange;">Kinna</span> have foretold the
-                    conversion to Nihit to his true Trans nature by 2027. <span style="color: cyan">@Nihit</span> dw, we
-                    support you in your every decision
-                </p>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
