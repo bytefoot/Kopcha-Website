@@ -1,4 +1,10 @@
 {% extends "layout.html"%}
+{% block extraheaders %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='extra.css') }}">
+{% endblock %}
 {% block content %}
-    <h1>This web page is still under development</h1>
+    <div class="dev-info-box">
+        <i class="dev-icon fa-solid fa-screwdriver-wrench"></i>
+        <h1>This web page is still under development</h1>
+    </div>
 {% endblock %}

@@ -1,0 +1,18 @@
+.dev-icon {
+    padding: 1rem;
+    font-size: 4rem;
+    color: orange;
+}
+
+.dev-info-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .dev-info-box {
+        flex-direction: column;
+    }
+}
